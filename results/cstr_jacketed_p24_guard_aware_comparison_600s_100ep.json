@@ -1,0 +1,841 @@
+{
+  "protocol": {
+    "environment": "cstr_jacketed industrial_p2_4_finite_cooling_utility",
+    "observation_profile": "field_no_concentration for both neural-policy groups",
+    "episodes_per_actor": 100,
+    "episode_steps": 1200,
+    "control_dt_s": 0.5,
+    "test_seed_range": [
+      202607570,
+      202607669
+    ],
+    "checkpoint_rule": "zero trip episodes, over88 episode rate <= 5%, KPI >= 95, then maximize profit; selected checkpoints all occur at or after step 1250",
+    "test_data_used_for_training_or_selection": false
+  },
+  "references": {
+    "PID": {
+      "controller": "PID",
+      "profit_rate": -4.004037745469244,
+      "product_mmol_s": 8.844706275544377,
+      "kpi": 99.78217754052062,
+      "max_temp": 61.93695746315592,
+      "over88_steps": 0.0,
+      "over92_steps": 0.0,
+      "trip_count": 0.0,
+      "mean_actuator_mismatch": 0.001251820539359721,
+      "production_credit_yph": 13.930412383982395,
+      "cooling_cost_yph": 17.93445012945164,
+      "overtemp_penalty_yph": 0.0,
+      "runaway_penalty_yph": 0.0,
+      "mean_coolant_supply_c": 12.478444267403658,
+      "max_coolant_supply_c": 14.382094866343442,
+      "mean_coolant_return_c": 34.11467059184831,
+      "mean_cooling_pump_kw": 13.305581860582702,
+      "max_cooling_pump_kw": 23.86229037919329,
+      "mean_head_tracking_error": 0.00423020191018965,
+      "guard_active_rate": 0.0,
+      "guard_emergency_rate": 0.0,
+      "mean_t_sp_intervention": 0.0,
+      "mean_pump_intervention": 0.0,
+      "mean_cooling_intervention": 0.0,
+      "worst_max_temp": 64.74400328702639,
+      "episodes_with_over88": 0,
+      "episodes_with_trip": 0,
+      "scheduled_events": {
+        "utility_stress": 40,
+        "fouling_ramp": 0,
+        "feed_batch": 62,
+        "pump_degradation": 57
+      },
+      "scheduled_micro_events": {
+        "feed_temp_pulse": 745,
+        "coolant_temp_pulse": 562,
+        "cooling_flow_dip": 326
+      }
+    },
+    "official_analyzer_rlpd": {
+      "controller": "official_analyzer_rlpd",
+      "profit_rate": 13.200371438846425,
+      "product_mmol_s": 17.42482563352065,
+      "kpi": 98.4878681387606,
+      "max_temp": 92.12001306713873,
+      "over88_steps": 1134.3,
+      "over92_steps": 2.2,
+      "trip_count": 0.48,
+      "mean_actuator_mismatch": 0.004153078580174406,
+      "production_credit_yph": 27.444100372795024,
+      "cooling_cost_yph": 11.96020482759726,
+      "overtemp_penalty_yph": 2.191857439684677,
+      "runaway_penalty_yph": 0.09166666666666667,
+      "mean_coolant_supply_c": 12.714206371789137,
+      "max_coolant_supply_c": 14.71722889032544,
+      "mean_coolant_return_c": 52.022810368974554,
+      "mean_cooling_pump_kw": 9.874763425652105,
+      "max_cooling_pump_kw": 33.65139381748311,
+      "mean_head_tracking_error": 0.00423020191018965,
+      "guard_active_rate": 0.0,
+      "guard_emergency_rate": 0.0,
+      "mean_t_sp_intervention": 0.0,
+      "mean_pump_intervention": 0.0,
+      "mean_cooling_intervention": 0.0,
+      "worst_max_temp": 93.4117585589072,
+      "episodes_with_over88": 100,
+      "episodes_with_trip": 48,
+      "scheduled_events": {
+        "utility_stress": 40,
+        "fouling_ramp": 0,
+        "feed_batch": 62,
+        "pump_degradation": 57
+      },
+      "scheduled_micro_events": {
+        "feed_temp_pulse": 745,
+        "coolant_temp_pulse": 562,
+        "cooling_flow_dip": 326
+      }
+    },
+    "deployed_field_v1_v4": {
+      "controller": "deployed_field_v1_v4",
+      "profit_rate": 11.771959689479477,
+      "product_mmol_s": 15.957536437855383,
+      "kpi": 97.86755347825627,
+      "max_temp": 85.55860032398624,
+      "over88_steps": 0.0,
+      "over92_steps": 0.0,
+      "trip_count": 0.0,
+      "mean_actuator_mismatch": 0.01564009843559162,
+      "production_credit_yph": 25.13311988962223,
+      "cooling_cost_yph": 13.361160200142752,
+      "overtemp_penalty_yph": 0.0,
+      "runaway_penalty_yph": 0.0,
+      "mean_coolant_supply_c": 12.717653660550106,
+      "max_coolant_supply_c": 14.719963638746355,
+      "mean_coolant_return_c": 48.16024260002369,
+      "mean_cooling_pump_kw": 10.534513995688304,
+      "max_cooling_pump_kw": 36.73822684520968,
+      "mean_head_tracking_error": 0.00423020191018965,
+      "guard_active_rate": 0.10655833333333334,
+      "guard_emergency_rate": 0.0,
+      "mean_t_sp_intervention": 0.31549743394851687,
+      "mean_pump_intervention": 0.005620008874038846,
+      "mean_cooling_intervention": 0.002309371886100174,
+      "worst_max_temp": 86.02301059304011,
+      "episodes_with_over88": 0,
+      "episodes_with_trip": 0,
+      "scheduled_events": {
+        "utility_stress": 40,
+        "fouling_ramp": 0,
+        "feed_batch": 62,
+        "pump_degradation": 57
+      },
+      "scheduled_micro_events": {
+        "feed_temp_pulse": 745,
+        "coolant_temp_pulse": 562,
+        "cooling_flow_dip": 326
+      }
+    }
+  },
+  "groups": {
+    "standard_field_raw90": {
+      "controller": "standard_field_raw90",
+      "training_seed_count": 3,
+      "episodes_per_training_seed": 100,
+      "total_actor_episode_evaluations": 300,
+      "by_training_seed": [
+        {
+          "training_seed": 101,
+          "profit_rate": 14.222560054163116,
+          "product_mmol_s": 18.460356654926336,
+          "kpi": 99.03173648234699,
+          "max_temp": 89.33207299323351,
+          "production_credit_yph": 29.075061731508978,
+          "cooling_cost_yph": 14.669267160124727,
+          "guard_active_rate": 0.0,
+          "guard_emergency_rate": 0.0,
+          "mean_t_sp_intervention": 0.0,
+          "mean_pump_intervention": 0.0,
+          "mean_cooling_intervention": 0.0,
+          "worst_max_temp": 91.28430071662517,
+          "episodes_with_over88": 93,
+          "episodes_with_trip": 0
+        },
+        {
+          "training_seed": 202,
+          "profit_rate": 13.673287692289014,
+          "product_mmol_s": 17.06769864616986,
+          "kpi": 99.36628218840016,
+          "max_temp": 90.41107320448855,
+          "production_credit_yph": 26.88162536771753,
+          "cooling_cost_yph": 11.995936141819948,
+          "guard_active_rate": 0.0,
+          "guard_emergency_rate": 0.0,
+          "mean_t_sp_intervention": 0.0,
+          "mean_pump_intervention": 0.0,
+          "mean_cooling_intervention": 0.0,
+          "worst_max_temp": 91.60353987883553,
+          "episodes_with_over88": 100,
+          "episodes_with_trip": 0
+        },
+        {
+          "training_seed": 303,
+          "profit_rate": 13.845752166260572,
+          "product_mmol_s": 18.1130536681719,
+          "kpi": 98.56807922153587,
+          "max_temp": 92.44005825743265,
+          "production_credit_yph": 28.52805952737075,
+          "cooling_cost_yph": 13.014390892530244,
+          "guard_active_rate": 0.0,
+          "guard_emergency_rate": 0.0,
+          "mean_t_sp_intervention": 0.0,
+          "mean_pump_intervention": 0.0,
+          "mean_cooling_intervention": 0.0,
+          "worst_max_temp": 93.80828948045328,
+          "episodes_with_over88": 100,
+          "episodes_with_trip": 73
+        }
+      ],
+      "training_seed_statistics": {
+        "profit_rate": {
+          "mean": 13.9138666375709,
+          "sd": 0.2808998358509718,
+          "ci95": [
+            13.216016442654682,
+            14.611716832487117
+          ],
+          "n": 3
+        },
+        "product_mmol_s": {
+          "mean": 17.880369656422697,
+          "sd": 0.7249003168237452,
+          "ci95": [
+            16.07947210211205,
+            19.681267210733346
+          ],
+          "n": 3
+        },
+        "kpi": {
+          "mean": 98.98869929742767,
+          "sd": 0.40083805151466745,
+          "ci95": [
+            97.99288201070006,
+            99.98451658415529
+          ],
+          "n": 3
+        },
+        "max_temp": {
+          "mean": 90.72773481838492,
+          "sd": 1.5780047635879746,
+          "ci95": [
+            86.80743729128767,
+            94.64803234548216
+          ],
+          "n": 3
+        },
+        "production_credit_yph": {
+          "mean": 28.161582208865752,
+          "sd": 1.1417179989973985,
+          "ci95": [
+            25.32516856082648,
+            30.997995856905025
+          ],
+          "n": 3
+        },
+        "cooling_cost_yph": {
+          "mean": 13.226531398158306,
+          "sd": 1.3492321442041448,
+          "ci95": [
+            9.874582430414435,
+            16.578480365902177
+          ],
+          "n": 3
+        },
+        "guard_active_rate": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 3
+        },
+        "guard_emergency_rate": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 3
+        },
+        "mean_t_sp_intervention": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 3
+        },
+        "mean_pump_intervention": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 3
+        },
+        "mean_cooling_intervention": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 3
+        }
+      },
+      "episodes_with_over88_total": 293,
+      "episodes_with_trip_total": 73,
+      "over88_episode_rate": 0.9766666666666667,
+      "trip_episode_rate": 0.24333333333333335,
+      "worst_max_temp": 93.80828948045328
+    },
+    "standard_field_v4": {
+      "controller": "standard_field_v4",
+      "training_seed_count": 3,
+      "episodes_per_training_seed": 100,
+      "total_actor_episode_evaluations": 300,
+      "by_training_seed": [
+        {
+          "training_seed": 101,
+          "profit_rate": 10.053056650168793,
+          "product_mmol_s": 18.099677009269637,
+          "kpi": 99.28059735498034,
+          "max_temp": 84.34532242736367,
+          "production_credit_yph": 28.506991289599682,
+          "cooling_cost_yph": 18.453934639430887,
+          "guard_active_rate": 0.006233333333333333,
+          "guard_emergency_rate": 0.0,
+          "mean_t_sp_intervention": 0.005058875910441079,
+          "mean_pump_intervention": 0.0010844693938394383,
+          "mean_cooling_intervention": 0.001427164308976689,
+          "worst_max_temp": 85.49939758140513,
+          "episodes_with_over88": 0,
+          "episodes_with_trip": 0
+        },
+        {
+          "training_seed": 202,
+          "profit_rate": 11.018812523340856,
+          "product_mmol_s": 16.78039825729675,
+          "kpi": 99.42616261443425,
+          "max_temp": 84.65847213962039,
+          "production_credit_yph": 26.429127255242378,
+          "cooling_cost_yph": 15.410314731901524,
+          "guard_active_rate": 0.018091666666666666,
+          "guard_emergency_rate": 0.0,
+          "mean_t_sp_intervention": 0.02760815192063649,
+          "mean_pump_intervention": 0.0017082807948688653,
+          "mean_cooling_intervention": 0.0024915877733392502,
+          "worst_max_temp": 85.84183521114392,
+          "episodes_with_over88": 0,
+          "episodes_with_trip": 0
+        },
+        {
+          "training_seed": 303,
+          "profit_rate": 11.484704602017004,
+          "product_mmol_s": 17.818185095838913,
+          "kpi": 98.7336683880707,
+          "max_temp": 85.2435873384974,
+          "production_credit_yph": 28.063641525946288,
+          "cooling_cost_yph": 16.57893692392929,
+          "guard_active_rate": 0.047266666666666665,
+          "guard_emergency_rate": 0.0,
+          "mean_t_sp_intervention": 0.1152320823033651,
+          "mean_pump_intervention": 0.007426798959076401,
+          "mean_cooling_intervention": 0.003430329723093607,
+          "worst_max_temp": 86.45883051462265,
+          "episodes_with_over88": 0,
+          "episodes_with_trip": 0
+        }
+      ],
+      "training_seed_statistics": {
+        "profit_rate": {
+          "mean": 10.852191258508883,
+          "sd": 0.7302232185629601,
+          "ci95": [
+            9.038069816028354,
+            12.666312700989412
+          ],
+          "n": 3
+        },
+        "product_mmol_s": {
+          "mean": 17.566086787468432,
+          "sd": 0.6948303923722886,
+          "ci95": [
+            15.839893095393922,
+            19.292280479542942
+          ],
+          "n": 3
+        },
+        "kpi": {
+          "mean": 99.1468094524951,
+          "sd": 0.36511842671284694,
+          "ci95": [
+            98.23973179444961,
+            100.0538871105406
+          ],
+          "n": 3
+        },
+        "max_temp": {
+          "mean": 84.74912730182716,
+          "sd": 0.45594268441282887,
+          "ci95": [
+            83.61641147013503,
+            85.88184313351928
+          ],
+          "n": 3
+        },
+        "production_credit_yph": {
+          "mean": 27.66658669026278,
+          "sd": 1.094357867986357,
+          "ci95": [
+            24.947831625245417,
+            30.38534175528014
+          ],
+          "n": 3
+        },
+        "cooling_cost_yph": {
+          "mean": 16.8143954317539,
+          "sd": 1.5354107160813704,
+          "ci95": [
+            12.999915924324437,
+            20.628874939183365
+          ],
+          "n": 3
+        },
+        "guard_active_rate": {
+          "mean": 0.02386388888888889,
+          "sd": 0.0211168776846424,
+          "ci95": [
+            -0.028597577183550705,
+            0.07632535496132849
+          ],
+          "n": 3
+        },
+        "guard_emergency_rate": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 3
+        },
+        "mean_t_sp_intervention": {
+          "mean": 0.04929970337814756,
+          "sd": 0.0582016013972111,
+          "ci95": [
+            -0.09529275875852691,
+            0.19389216551482205
+          ],
+          "n": 3
+        },
+        "mean_pump_intervention": {
+          "mean": 0.0034065163825949016,
+          "sd": 0.0034956099842637076,
+          "ci95": [
+            -0.005277761062706646,
+            0.01209079382789645
+          ],
+          "n": 3
+        },
+        "mean_cooling_intervention": {
+          "mean": 0.0024496939351365153,
+          "sd": 0.0010022396117386643,
+          "ci95": [
+            -4.0208226200617175e-05,
+            0.004939596096473648
+          ],
+          "n": 3
+        }
+      },
+      "episodes_with_over88_total": 0,
+      "episodes_with_trip_total": 0,
+      "over88_episode_rate": 0.0,
+      "trip_episode_rate": 0.0,
+      "worst_max_temp": 86.45883051462265
+    },
+    "guard_aware_field_raw85": {
+      "controller": "guard_aware_field_raw85",
+      "training_seed_count": 3,
+      "episodes_per_training_seed": 100,
+      "total_actor_episode_evaluations": 300,
+      "by_training_seed": [
+        {
+          "training_seed": 505,
+          "profit_rate": 11.287494130610433,
+          "product_mmol_s": 16.761155354670578,
+          "kpi": 98.00520988606186,
+          "max_temp": 86.0738239160861,
+          "production_credit_yph": 26.398819683606153,
+          "cooling_cost_yph": 15.111325552995726,
+          "guard_active_rate": 0.0,
+          "guard_emergency_rate": 0.0,
+          "mean_t_sp_intervention": 0.0,
+          "mean_pump_intervention": 0.0,
+          "mean_cooling_intervention": 0.0,
+          "worst_max_temp": 87.02602371989266,
+          "episodes_with_over88": 0,
+          "episodes_with_trip": 0
+        },
+        {
+          "training_seed": 606,
+          "profit_rate": 10.3646317422926,
+          "product_mmol_s": 16.67769027069807,
+          "kpi": 99.07446907306795,
+          "max_temp": 86.7849063010883,
+          "production_credit_yph": 26.267362176349458,
+          "cooling_cost_yph": 15.902718735111955,
+          "guard_active_rate": 0.0,
+          "guard_emergency_rate": 0.0,
+          "mean_t_sp_intervention": 0.0,
+          "mean_pump_intervention": 0.0,
+          "mean_cooling_intervention": 0.0,
+          "worst_max_temp": 88.31058411038792,
+          "episodes_with_over88": 2,
+          "episodes_with_trip": 0
+        },
+        {
+          "training_seed": 707,
+          "profit_rate": 12.211458142326618,
+          "product_mmol_s": 17.66801701603038,
+          "kpi": 98.67340487097208,
+          "max_temp": 86.73786893491308,
+          "production_credit_yph": 27.827126800247854,
+          "cooling_cost_yph": 15.615018913073188,
+          "guard_active_rate": 0.0,
+          "guard_emergency_rate": 0.0,
+          "mean_t_sp_intervention": 0.0,
+          "mean_pump_intervention": 0.0,
+          "mean_cooling_intervention": 0.0,
+          "worst_max_temp": 89.97048071507749,
+          "episodes_with_over88": 22,
+          "episodes_with_trip": 0
+        }
+      ],
+      "training_seed_statistics": {
+        "profit_rate": {
+          "mean": 11.287861338409884,
+          "sd": 0.9234132547764458,
+          "ci95": [
+            8.993790507496897,
+            13.581932169322872
+          ],
+          "n": 3
+        },
+        "product_mmol_s": {
+          "mean": 17.03562088046634,
+          "sd": 0.5492588272097964,
+          "ci95": [
+            15.671076189770384,
+            18.400165571162294
+          ],
+          "n": 3
+        },
+        "kpi": {
+          "mean": 98.58436127670063,
+          "sd": 0.5401623584717941,
+          "ci95": [
+            97.24241529085131,
+            99.92630726254995
+          ],
+          "n": 3
+        },
+        "max_temp": {
+          "mean": 86.5321997173625,
+          "sd": 0.3976611746839358,
+          "ci95": [
+            85.5442748671286,
+            87.5201245675964
+          ],
+          "n": 3
+        },
+        "production_credit_yph": {
+          "mean": 26.831102886734488,
+          "sd": 0.8650826528554344,
+          "ci95": [
+            24.681944998888344,
+            28.980260774580632
+          ],
+          "n": 3
+        },
+        "cooling_cost_yph": {
+          "mean": 15.54302106706029,
+          "sd": 0.4005790303396889,
+          "ci95": [
+            14.547847276534437,
+            16.53819485758614
+          ],
+          "n": 3
+        },
+        "guard_active_rate": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 3
+        },
+        "guard_emergency_rate": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 3
+        },
+        "mean_t_sp_intervention": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 3
+        },
+        "mean_pump_intervention": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 3
+        },
+        "mean_cooling_intervention": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 3
+        }
+      },
+      "episodes_with_over88_total": 24,
+      "episodes_with_trip_total": 0,
+      "over88_episode_rate": 0.08,
+      "trip_episode_rate": 0.0,
+      "worst_max_temp": 89.97048071507749
+    },
+    "guard_aware_field_v4": {
+      "controller": "guard_aware_field_v4",
+      "training_seed_count": 3,
+      "episodes_per_training_seed": 100,
+      "total_actor_episode_evaluations": 300,
+      "by_training_seed": [
+        {
+          "training_seed": 505,
+          "profit_rate": 11.385887980807793,
+          "product_mmol_s": 16.701942213463962,
+          "kpi": 98.14279768530895,
+          "max_temp": 85.19367203602003,
+          "production_credit_yph": 26.30555898620573,
+          "cooling_cost_yph": 14.919671005397941,
+          "guard_active_rate": 0.05024166666666667,
+          "guard_emergency_rate": 0.0,
+          "mean_t_sp_intervention": 0.11931672793229421,
+          "mean_pump_intervention": 0.004213669732809063,
+          "mean_cooling_intervention": 0.0008305955130852716,
+          "worst_max_temp": 85.47877669748948,
+          "episodes_with_over88": 0,
+          "episodes_with_trip": 0
+        },
+        {
+          "training_seed": 606,
+          "profit_rate": 10.49219957046191,
+          "product_mmol_s": 16.663543007786146,
+          "kpi": 99.14937238805557,
+          "max_temp": 84.43630172457232,
+          "production_credit_yph": 26.24508023726318,
+          "cooling_cost_yph": 15.75288066680127,
+          "guard_active_rate": 0.010133333333333333,
+          "guard_emergency_rate": 0.0,
+          "mean_t_sp_intervention": 0.012878681047757468,
+          "mean_pump_intervention": 0.0012590216476221871,
+          "mean_cooling_intervention": 0.0023679077073509346,
+          "worst_max_temp": 85.78902364399787,
+          "episodes_with_over88": 0,
+          "episodes_with_trip": 0
+        },
+        {
+          "training_seed": 707,
+          "profit_rate": 12.040136245973088,
+          "product_mmol_s": 17.467755965348402,
+          "kpi": 98.17014271536566,
+          "max_temp": 85.39805594214944,
+          "production_credit_yph": 27.511715645423738,
+          "cooling_cost_yph": 15.471579399450647,
+          "guard_active_rate": 0.07475000000000001,
+          "guard_emergency_rate": 0.0,
+          "mean_t_sp_intervention": 0.20224822371403373,
+          "mean_pump_intervention": 0.010828909257302677,
+          "mean_cooling_intervention": 0.0023847080282206386,
+          "worst_max_temp": 86.00550137329581,
+          "episodes_with_over88": 0,
+          "episodes_with_trip": 0
+        }
+      ],
+      "training_seed_statistics": {
+        "profit_rate": {
+          "mean": 11.30607459908093,
+          "sd": 0.7770486598503067,
+          "ci95": [
+            9.375622923688661,
+            13.236526274473198
+          ],
+          "n": 3
+        },
+        "product_mmol_s": {
+          "mean": 16.94441372886617,
+          "sd": 0.45363415558557807,
+          "ci95": [
+            15.817433063544597,
+            18.071394394187745
+          ],
+          "n": 3
+        },
+        "kpi": {
+          "mean": 98.4874375962434,
+          "sd": 0.5734153722440415,
+          "ci95": [
+            97.06287987773779,
+            99.911995314749
+          ],
+          "n": 3
+        },
+        "max_temp": {
+          "mean": 85.00934323424725,
+          "sd": 0.5066809885214609,
+          "ci95": [
+            83.75057629503254,
+            86.26811017346196
+          ],
+          "n": 3
+        },
+        "production_credit_yph": {
+          "mean": 26.68745162296422,
+          "sd": 0.7144737950472897,
+          "ci95": [
+            24.912457075082727,
+            28.46244617084571
+          ],
+          "n": 3
+        },
+        "cooling_cost_yph": {
+          "mean": 15.381377023883287,
+          "sd": 0.4238654696745877,
+          "ci95": [
+            14.328351842381952,
+            16.43440220538462
+          ],
+          "n": 3
+        },
+        "guard_active_rate": {
+          "mean": 0.045041666666666674,
+          "sd": 0.03262067446846827,
+          "ci95": [
+            -0.03599912129661431,
+            0.12608245462994766
+          ],
+          "n": 3
+        },
+        "guard_emergency_rate": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 3
+        },
+        "mean_t_sp_intervention": {
+          "mean": 0.11148121089802847,
+          "sd": 0.09492761672877055,
+          "ci95": [
+            -0.124351094366294,
+            0.34731351616235095
+          ],
+          "n": 3
+        },
+        "mean_pump_intervention": {
+          "mean": 0.005433866879244642,
+          "sd": 0.004900239588286086,
+          "ci95": [
+            -0.006739985559871251,
+            0.017607719318360537
+          ],
+          "n": 3
+        },
+        "mean_cooling_intervention": {
+          "mean": 0.0018610704162189482,
+          "sd": 0.000892456977779098,
+          "ci95": [
+            -0.0003560945529620999,
+            0.004078235385399996
+          ],
+          "n": 3
+        }
+      },
+      "episodes_with_over88_total": 0,
+      "episodes_with_trip_total": 0,
+      "over88_episode_rate": 0.0,
+      "trip_episode_rate": 0.0,
+      "worst_max_temp": 86.00550137329581
+    }
+  },
+  "comparisons": {
+    "guard_aware_v4_vs_standard_field_raw90": {
+      "profit_delta_yph": -2.60779203848997,
+      "profit_retention": 0.8125760360927793,
+      "product_delta_mmol_s": -0.9359559275565275,
+      "kpi_delta": -0.5012617011842764,
+      "over88_episode_delta_total": -293,
+      "trip_episode_delta_total": -73
+    },
+    "guard_aware_v4_vs_standard_field_v4": {
+      "profit_delta_yph": 0.4538833405720464,
+      "profit_retention": 1.0418241191811073,
+      "product_delta_mmol_s": -0.6216730586022621,
+      "kpi_delta": -0.6593718562517097,
+      "over88_episode_delta_total": 0,
+      "trip_episode_delta_total": 0
+    },
+    "guard_aware_v4_vs_same_actor_raw85": {
+      "profit_delta_yph": 0.018213260671045006,
+      "profit_retention": 1.0016135262584303,
+      "product_delta_mmol_s": -0.09120715160016957,
+      "kpi_delta": -0.09692368045723754,
+      "over88_episode_delta_total": -24,
+      "trip_episode_delta_total": 0
+    },
+    "guard_aware_v4_vs_official_analyzer": {
+      "profit_delta_yph": -1.8942968397654951,
+      "profit_retention": 0.8564967017374295,
+      "product_delta_mmol_s": -0.48041190465448125,
+      "kpi_delta": -0.0004305425172077548,
+      "over88_episode_rate_delta": -1.0,
+      "trip_episode_rate_delta": -0.48
+    },
+    "guard_aware_v4_vs_deployed_field_v1": {
+      "profit_delta_yph": -0.4658850903985474,
+      "profit_retention": 0.960424168729111,
+      "product_delta_mmol_s": 0.9868772910107868,
+      "kpi_delta": 0.6198841179871266,
+      "over88_episode_rate_delta": 0.0,
+      "trip_episode_rate_delta": 0.0
+    }
+  }
+}

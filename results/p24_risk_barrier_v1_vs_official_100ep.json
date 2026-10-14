@@ -1,0 +1,46 @@
+{
+  "protocol": {
+    "environment": "cstr_jacketed industrial_p4",
+    "episodes": 100,
+    "episode_steps": 1200,
+    "control_dt_s": 0.5,
+    "seed_range": [
+      202608000,
+      202608099
+    ],
+    "test_data_used_for_training_or_selection": false,
+    "comparison_note": "Same process seeds, but not an equal-information algorithm comparison: the official reference uses 8D analyzer observations without V4, while the candidate uses 9D field observations with V4."
+  },
+  "models": {
+    "official": "frontend/models/rlpd_cstr_jacketed_p24_official.onnx",
+    "candidate": "runs/p24_risk_barrier_v1_seed808.onnx"
+  },
+  "results": [
+    {
+      "controller": "official_p24_analyzer_rlpd_raw",
+      "episodes": 100,
+      "profit_rate": 13.118707253296197,
+      "profit_std": 2.3690479525006443,
+      "kpi": 98.42608546206404,
+      "episodes_with_over88": 100,
+      "episodes_with_trip": 53,
+      "worst_max_temperature": 93.03472911452185
+    },
+    {
+      "controller": "field_risk_barrier_v1_v4",
+      "episodes": 100,
+      "profit_rate": 9.521561293347078,
+      "profit_std": 4.267000816659272,
+      "kpi": 98.51870813742703,
+      "episodes_with_over88": 0,
+      "episodes_with_trip": 0,
+      "worst_max_temperature": 85.99356004233753
+    }
+  ],
+  "comparison": {
+    "candidate_profit_minus_official": -3.5971459599491187,
+    "candidate_profit_retention": 0.7258002720469807,
+    "over88_episode_reduction": 100,
+    "trip_episode_reduction": 53
+  }
+}

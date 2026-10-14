@@ -1,0 +1,31 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.DS_Store
+.vscode/
+.env
+.env.*
+!.env.example
+
+# Training products stay local unless deliberately promoted.
+runs/*
+*.pt
+*.onnx
+
+# The three browser policies are versioned release assets.
+!frontend/models/rlpd_cstr_upstream.onnx
+!frontend/models/rlpd_cstr_jacketed_p24_field_v1.onnx
+!frontend/models/rlpd_cstr_jacketed_p24_official.onnx
+
+# Curated research snapshots needed to reproduce the published experiments.
+!runs/README.md
+!runs/p24_risk_barrier_v1_seed808_experiment.json
+!runs/p24_risk_barrier_v1_seed808_best.pt
+!runs/p24_risk_barrier_v1_seed808.onnx
+!runs/p24_risk_barrier_v2_seed808.json
+!runs/p24_risk_barrier_v2_seed808_best.pt
+!runs/p24_risk_barrier_v2_seed808.onnx

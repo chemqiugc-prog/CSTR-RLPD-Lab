@@ -1,0 +1,123 @@
+{
+  "environment": "cstr_v2_jacketed",
+  "realism_profile": "industrial_p2_4_finite_cooling_utility",
+  "episodes": 100,
+  "episode_steps": 1200,
+  "model": "aiogym/runs/rlpd_cstr_jacketed_p24_field_v1.onnx",
+  "official_model": null,
+  "safety_profile": "official_profit",
+  "balanced_acceptance": {
+    "episodes_with_trip_max": 0,
+    "episodes_with_over88_rate_max": 0.05,
+    "control_kpi_min": 95.0,
+    "selection_rule": "maximize profit subject to the risk and KPI constraints"
+  },
+  "risk_observation": false,
+  "results": [
+    {
+      "controller": "PID",
+      "profit_rate": -3.711502964379101,
+      "product_mmol_s": 8.838188158739726,
+      "kpi": 99.77142437194412,
+      "max_temp": 61.88483489870193,
+      "over88_steps": 0.0,
+      "over92_steps": 0.0,
+      "trip_count": 0.0,
+      "mean_actuator_mismatch": 0.001253449839900267,
+      "production_credit_yph": 13.92014635001507,
+      "cooling_cost_yph": 17.63164931439417,
+      "overtemp_penalty_yph": 0.0,
+      "runaway_penalty_yph": 0.0,
+      "mean_coolant_supply_c": 12.295750619335276,
+      "max_coolant_supply_c": 14.057616294783983,
+      "mean_coolant_return_c": 34.15298288409187,
+      "mean_cooling_pump_kw": 13.118499599420328,
+      "max_cooling_pump_kw": 23.293587462235596,
+      "mean_head_tracking_error": 0.004290936303692094,
+      "worst_max_temp": 64.77057211548163,
+      "episodes_with_over88": 0,
+      "episodes_with_trip": 0,
+      "scheduled_events": {
+        "utility_stress": 36,
+        "fouling_ramp": 0,
+        "feed_batch": 47,
+        "pump_degradation": 63
+      },
+      "scheduled_micro_events": {
+        "feed_temp_pulse": 739,
+        "coolant_temp_pulse": 567,
+        "cooling_flow_dip": 332
+      }
+    },
+    {
+      "controller": "base_rlpd_unguarded",
+      "profit_rate": 12.534062807206151,
+      "product_mmol_s": 16.046907110767,
+      "kpi": 98.01115699139896,
+      "max_temp": 91.68442653188987,
+      "over88_steps": 1100.13,
+      "over92_steps": 1.02,
+      "trip_count": 0.25,
+      "mean_actuator_mismatch": 0.0029884389768291835,
+      "production_credit_yph": 25.273878699458027,
+      "cooling_cost_yph": 10.330345712064423,
+      "overtemp_penalty_yph": 2.366970180187452,
+      "runaway_penalty_yph": 0.0425,
+      "mean_coolant_supply_c": 12.421090153951662,
+      "max_coolant_supply_c": 14.272772226629527,
+      "mean_coolant_return_c": 53.64243776678057,
+      "mean_cooling_pump_kw": 8.877768178627182,
+      "max_cooling_pump_kw": 28.250204780649188,
+      "mean_head_tracking_error": 0.004290936303692094,
+      "worst_max_temp": 93.07632216381832,
+      "episodes_with_over88": 100,
+      "episodes_with_trip": 25,
+      "scheduled_events": {
+        "utility_stress": 36,
+        "fouling_ramp": 0,
+        "feed_batch": 47,
+        "pump_degradation": 63
+      },
+      "scheduled_micro_events": {
+        "feed_temp_pulse": 739,
+        "coolant_temp_pulse": 567,
+        "cooling_flow_dip": 332
+      }
+    },
+    {
+      "controller": "official_profit_guard_v4",
+      "profit_rate": 11.992827347264,
+      "product_mmol_s": 15.904094371809808,
+      "kpi": 97.80757650904351,
+      "max_temp": 85.53900775558355,
+      "over88_steps": 0.0,
+      "over92_steps": 0.0,
+      "trip_count": 0.0,
+      "mean_actuator_mismatch": 0.01524926257686661,
+      "production_credit_yph": 25.04894863560044,
+      "cooling_cost_yph": 13.056121288336442,
+      "overtemp_penalty_yph": 0.0,
+      "runaway_penalty_yph": 0.0,
+      "mean_coolant_supply_c": 12.525532030691611,
+      "max_coolant_supply_c": 14.387506275056007,
+      "mean_coolant_return_c": 48.2846179427298,
+      "mean_cooling_pump_kw": 10.313124342276508,
+      "max_cooling_pump_kw": 36.45633013419916,
+      "mean_head_tracking_error": 0.004290936303692094,
+      "worst_max_temp": 86.24711150149571,
+      "episodes_with_over88": 0,
+      "episodes_with_trip": 0,
+      "scheduled_events": {
+        "utility_stress": 36,
+        "fouling_ramp": 0,
+        "feed_batch": 47,
+        "pump_degradation": 63
+      },
+      "scheduled_micro_events": {
+        "feed_temp_pulse": 739,
+        "coolant_temp_pulse": 567,
+        "cooling_flow_dip": 332
+      }
+    }
+  ]
+}

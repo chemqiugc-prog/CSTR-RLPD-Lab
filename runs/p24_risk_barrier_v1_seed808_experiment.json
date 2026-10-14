@@ -1,0 +1,121 @@
+{
+  "experiment": "p24_risk_barrier_v1_seed808",
+  "status": "completed_not_adopted",
+  "environment": {
+    "scenario": "cstr_jacketed",
+    "realism_profile": "industrial_p4",
+    "observation_profile": "field_no_concentration",
+    "observation_dim": 9,
+    "action_mode": "setpoint",
+    "action_dim": 2,
+    "temperature_action_range_c": [45.0, 85.0],
+    "supervisory_guard": "v4"
+  },
+  "reward": {
+    "mode": "economic_risk_barrier",
+    "base": "economic profit",
+    "risk_barrier": {
+      "trigger_temp": 85.5,
+      "temperature_scale": 1.0,
+      "horizon_s": 5.0,
+      "jacket_horizon_s": 2.0,
+      "barrier_weight": 2.0,
+      "recovery_weight": 1.0,
+      "trip_cost": 100.0,
+      "recovery_clip": 5.0
+    }
+  },
+  "training": {
+    "seed": 808,
+    "offline_seed": 11000,
+    "offline_episodes": 40,
+    "offline_transitions": 48000,
+    "bc_steps": 0,
+    "pretrain_updates": 0,
+    "planned_online_steps": 10000,
+    "executed_online_steps": 5000,
+    "stop_reason": "validation profit collapsed monotonically after the best checkpoint",
+    "utd": 5,
+    "n_critics": 5,
+    "learning_rate": 0.0003,
+    "batch_size": 256,
+    "eval_seed": 90000,
+    "eval_episodes": 12,
+    "checkpoint_selection": "zero trips, over88 rate <= 5%, KPI >= 95, then maximum profit"
+  },
+  "validation_history_rounded": [
+    {
+      "step": 1250,
+      "cumulative_profit": 11144.1,
+      "cumulative_profit_std": 3851.5,
+      "profit_rate_approx": 9.2868,
+      "kpi": 98.5,
+      "episodes_with_over88": 0,
+      "episodes_with_trip": 0,
+      "selected_best": true
+    },
+    {
+      "step": 2500,
+      "cumulative_profit": 7038.1,
+      "cumulative_profit_std": 1613.4,
+      "profit_rate_approx": 5.8651,
+      "kpi": 97.4,
+      "episodes_with_over88": 0,
+      "episodes_with_trip": 0,
+      "selected_best": false
+    },
+    {
+      "step": 3750,
+      "cumulative_profit": 5437.3,
+      "cumulative_profit_std": 1519.3,
+      "profit_rate_approx": 4.5311,
+      "kpi": 98.8,
+      "episodes_with_over88": 0,
+      "episodes_with_trip": 0,
+      "selected_best": false
+    },
+    {
+      "step": 5000,
+      "cumulative_profit": 1828.8,
+      "cumulative_profit_std": 1812.7,
+      "profit_rate_approx": 1.524,
+      "kpi": 99.1,
+      "episodes_with_over88": 0,
+      "episodes_with_trip": 0,
+      "selected_best": false
+    }
+  ],
+  "artifacts": {
+    "best_checkpoint": "runs/p24_risk_barrier_v1_seed808_best.pt",
+    "latest_checkpoint_at_stop": "runs/p24_risk_barrier_v1_seed808_latest.pt",
+    "exported_actor": "runs/p24_risk_barrier_v1_seed808.onnx",
+    "formal_comparison": "results/p24_risk_barrier_v1_vs_official_100ep.json"
+  },
+  "formal_test": {
+    "seed_range": [202608000, 202608099],
+    "episodes": 100,
+    "episode_seconds": 600,
+    "candidate": {
+      "profit_rate": 9.521561293347078,
+      "profit_std": 4.267000816659272,
+      "kpi": 98.51870813742703,
+      "episodes_with_over88": 0,
+      "episodes_with_trip": 0,
+      "worst_max_temperature": 85.99356004233753
+    },
+    "official_reference": {
+      "profit_rate": 13.118707253296197,
+      "profit_std": 2.3690479525006443,
+      "kpi": 98.42608546206404,
+      "episodes_with_over88": 100,
+      "episodes_with_trip": 53,
+      "worst_max_temperature": 93.03472911452185
+    },
+    "candidate_profit_retention": 0.7258002720469807
+  },
+  "decision": {
+    "adopted": false,
+    "frontend_replaced": false,
+    "reason": "The nonlinear barrier eliminated observed thermal violations but was too conservative economically and did not fix late-training collapse."
+  }
+}
